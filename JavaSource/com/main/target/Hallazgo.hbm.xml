@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 10:26:47 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.main.target.Hallazgo" table="hallazgo" schema="public">
+        <id name="idHallazgo" type="string">
+            <column name="id_hallazgo" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="idDependencia" type="string">
+            <column name="id_dependencia" length="25" not-null="true" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="15" not-null="true" />
+        </property>
+        <property name="periodo" type="string">
+            <column name="periodo" length="10" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="50" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" not-null="true" />
+        </property>
+        <set name="caracteristicas" table="caracteristica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hallazgo" length="15" not-null="true" />
+            </key>
+            <one-to-many class="com.main.target.Caracteristica" />
+        </set>
+    </class>
+</hibernate-mapping>

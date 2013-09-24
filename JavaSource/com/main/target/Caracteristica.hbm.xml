@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 10:26:47 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.main.target.Caracteristica" table="caracteristica" schema="public">
+        <composite-id name="id" class="com.main.target.CaracteristicaId">
+            <key-property name="idHallazgo" type="string">
+                <column name="id_hallazgo" length="15" />
+            </key-property>
+            <key-property name="tipoCaracteristica" type="string">
+                <column name="tipo_caracteristica" length="15" />
+            </key-property>
+            <key-property name="valorCaracteristica" type="string">
+                <column name="valor_caracteristica" length="50" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="hallazgo" class="com.main.target.Hallazgo" update="false" insert="false" fetch="select">
+            <column name="id_hallazgo" length="15" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
