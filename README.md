@@ -1,4 +1,0 @@
-Hallazgos
-=========
-
-Modulo de Hallazgos
